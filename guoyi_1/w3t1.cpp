@@ -2,7 +2,7 @@
 
 #include<iostream>
 #include<math.h>
-#include<iomanip>
+#include<iomanip> //用来控制输出格式 
 using namespace std;
 double a,b,c;
 double x1,x2;

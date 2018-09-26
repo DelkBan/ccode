@@ -1,4 +1,4 @@
-// 三 第三周作业 
+// 三 第三周作业 2 封闭类问题 
 
 #include <iostream>
 #include <string>

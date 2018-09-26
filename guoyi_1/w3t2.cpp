@@ -1,62 +1,21 @@
-//第三周作业 
-
-#include<iostream>
-#include<cstdio>
+//第三周作业  第十题 鸡尾酒疗法 
+#include <iostream>
+#include <iomanip>
 using namespace std;
-
-
-
 int main()
 {
-	double x,y,a,b;
-	int n;
-	cin >> n;
-	cin >> a >>b;
-	x=b/a;
-	int i;
-	int ju[n];
-	for(i=1;i<n;i++)
-	{
-		cin >> a >>b;
-		y=b/a;
-		if(y-x > 0.05)
-			ju[i]=1;
-		else if(x-y > 0.05)
-			ju[i]=2;
-		else
-			ju[i]=0;
-	}
-	
-	for(i=0;i<n-1;i++)
-	{
-		switch(ju[i]){
-			case 0: 
-				cout<<"same"<<endl;
-				break;
-			case 1:
-				cout<<"better"<<endl;
-				break;
-			case 2:
-				cout<<"worse"<<endl;
-				break;
-		}
-	}
-	
-	switch(ju[n-1]){
-			case 0: 
-				cout<<"same";
-				break;
-			case 1:
-				cout<<"better";
-				break;
-			case 2:
-				cout<<"worse";
-				break;
-		}
-	
-		 
-	
-	
-	
-	return 0;
- } 
+    int n, a, b;
+    double x, y;
+    cin >> n;
+    cin >> a >> b;
+    x = (double)b/a;
+    for (int i=1; i<n; i++){
+        cin >> a >> b;
+        y = (double)b/a;
+        if ((y-x) > 0.05) cout << "better" << endl;
+        else if ((x-y) > 0.05) cout << "worse" << endl;
+        else cout << "same" << endl;
+    }
+    return 0;
+}
+
