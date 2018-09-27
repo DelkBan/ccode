@@ -26,3 +26,37 @@ int main()
 		cout << a2.v << "," << a2.b.k << endl;
 	}
 } 
+
+
+//下面是用到虚析构的动物问题 
+class Animal{
+	public:
+		static int number;
+		Animal(){
+			number++;
+		}
+		virtual ~Animal(){
+			number--;
+		}
+};
+class Dog:public Animal{
+	public:
+		static int number;
+		Dog(){
+			number++;
+		}
+		~Dog(){
+			number--;
+		}
+};
+class Cat:public Animal{
+	public:
+		static int number;
+		Cat(){
+			number++;
+		}
+		~Cat(){
+			number--;
+		}
+};
+int Animal::number = 0,Dog::number = 0,Cat::number=0;
