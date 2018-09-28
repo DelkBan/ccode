@@ -13,9 +13,9 @@ int curCount = 0;//当前字符位置
 //将输入内容初始化 
 void iniInput()
 {
-	cin.getline(input,10001);
+	cin.getline(input,100001);
 	int len = strlen(input);//从头开始直到第一个'\0'的 长度
-	char temp[10001] = {0};
+	char temp[100001] = {0};
 	int j=0;
 	for(int i = 0;i<len;i++)
 	{
@@ -51,17 +51,17 @@ bool expression()
 bool term()
 {
 	bool result = factor();
-	while(true)
-	{
+	
+	
 		char op = input[curCount];
 		if(op == '!')
 		{
 			curCount++;
 			result = !factor();
 		}
-		else break;
 		
-	}
+		
+	
 	return result;
 }
 
@@ -74,7 +74,7 @@ bool factor()
 		curCount++;
 		result = expression();
 		curCount++;
-		d = input[curCount];
+	//	d = input[curCount];
 	}
 	else if(d == 'V'){
 		curCount++;
@@ -85,13 +85,14 @@ bool factor()
 	else if(d== '!'){
 		result = term();
 	}
+	return result;
 
 }
 
 void output()
 {
 	int n = 0;
-	while(cin.getline(input,10001))
+	while(cin.getline(input,100001))
 	{
 		iniInput();
 		cout << "Expression " << ++n <<": " << (expression()? "V":"F" )<<endl;
