@@ -13,39 +13,34 @@ void seperate(int n,int &a,int& b,int& c)
 	b = n/10 %10;
   }  
 
-void change(int n,int &seven,int &nine)
+bool change(int &ten,int &seven,int &nine)
 {
-	seperate(n,A,B,C);
-	seven = C + B*7 + A*49;
-	nine = C + B*9 + A*81;
+	seperate(seven,A,B,C);
+	if(A*49+B*7+C ==C*81+B*9+A)  //ÕÒµ½ÁË
+		 {
+		 	ten = A*49+B*7+C;
+		 	nine = C*100+B*10+A;
+		 	return true;
+		 }
+	else return false;
 }
 
-bool isEqual(int sev,int nin)
-{
-	int sev1,sev2,sev3,nin1,nin2,nin3;
-	seperate(sev,sev1,sev2,sev3);
-	seperate(nin,nin1,nin2,nin3);
-	if(sev1==nin3 && sev2 == nin2 && sev3 == nin1)
-		return true;
-	else
-		return false;
-}
+
 
 int main()
 {
-	int ten=100,sev,nin;
-	while(1)
+	int ten,sev=100,nin;
+	while(sev<1000)
 	{
-		change(ten,sev,nin);
-		if(isEqual(sev,nin))
+		if(change(ten,sev,nin))
 		{
 			cout<<ten<<endl;
 			cout<<sev<<endl;
-			cout<<nin<<endl;
-			break;
+			cout<<nin<<endl<<endl;
+			//break;
 		}
-		ten++;
-		sev = 0;
+		sev++;
+		ten = 0;
 		nin = 0;
 	}
 	
