@@ -1,22 +1,52 @@
+
+
 #include <stdio.h>
-  int main(int argc, char *argv[])
-  {
-      int x,y,z;
-      int xyz,zyx;//7进制数和9进制数对应的十进制数 
-      for(x=1;x<7;x++)
-      {
-          for(y=0;y<7;y++)
-          {
-             for(z=1;z<7;z++)
-             {
-                 xyz=x*7*7+y*7+z;
-                 zyx=z*9*9+y*9+x;
-                 if(xyz==zyx)
-                 {
-                     printf("%d\n%d%d%d\n%d%d%d\n",xyz,x,y,z,z,y,x);
-                 }
-             }
-         }
-     }
-     return 0;
- }
+#include <stdlib.h>
+#include <windows.h>
+
+void putele(const int right,
+            const int down,
+            const HANDLE hOut)
+{
+    char symb[10];
+    strcpy(symb, "◆");
+    wchar_t wsym[10];
+    int cvcnt;
+    cvcnt = MultiByteToWideChar(CP_UTF8, 0, symb, -1, NULL, 0);
+    MultiByteToWideChar(CP_UTF8, 0, symb, -1, wsym, cvcnt);
+    cvcnt = WideCharToMultiByte(CP_ACP, 0, wsym, -1, NULL, 0, NULL, NULL);
+    WideCharToMultiByte(CP_ACP, 0, wsym, -1, symb, cvcnt, NULL, NULL);
+
+    COORD pos = {right * 2, down + 1};
+    SetConsoleCursorPosition(hOut, pos);
+    printf("%s", symb);
+
+}
+
+int main()
+{
+    int i, j, k;
+    int updn, leri;
+
+    i = j = updn = leri = 0;
+
+    for(k = 0; k < 1000; ++k)
+    {
+        HANDLE hOut;
+        COORD pos= {0, 0};
+        hOut = GetStdHandle(STD_OUTPUT_HANDLE);
+        SetConsoleCursorPosition(hOut, pos);
+
+        printf("--------------------------line: %2d, row: %2d, cnt: %4d--------------------------\n", j, i, k);
+        putele(i, j, hOut);
+        i == 39 ? updn = 1 : 0;
+        j == 23 ? leri = 1 : 0;
+        !i ? updn = 0 : 0;
+        !j ? leri = 0 : 0;
+        !updn ? ++i : --i;
+        !leri ? ++j : --j;
+        Sleep(50);
+    }
+
+    return 0;
+}
