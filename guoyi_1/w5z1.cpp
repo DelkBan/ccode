@@ -18,7 +18,7 @@
  		if ( m== a[i])
  			count ++;
 	 }
-	 cout << m << endl;
+	 cout << count << endl;
 	 
  		
  }

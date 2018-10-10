@@ -7,7 +7,7 @@ int Pell[1000001]={1,2};
  
  int main()
  {
- 	freopen("C:\\Users\\DelkBan\\Downloads\\in (28).txt","r",stdin);
+ //	freopen("C:\\Users\\DelkBan\\Downloads\\in (28).txt","r",stdin);
  	int n,k;
  	//先把数据模拟出来
 	 for(int i=0;i<1000001;i++)

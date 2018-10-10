@@ -6,7 +6,7 @@
  
  int main()
  {
- 	freopen("C:\\Users\\DelkBan\\Downloads\\in (28).txt","r",stdin);
+ //	freopen("C:\\Users\\DelkBan\\Downloads\\in (28).txt","r",stdin);
  	int m,n;
  	cin >> n >>m;
  	int a[n][m];
@@ -25,7 +25,7 @@
 	 	{
 	 		int temp;
 	 		temp=a[i-1][j]+a[i+1][j]+a[i][j+1]+a[i][j-1]+a[i][j];
-	 		b[i][j]=int(temp+2.5)/5; //+2是为了凑成四舍五入 
+	 		b[i][j]=int(temp+2.5)/5; //+2.5是为了凑成四舍五入 
 		 }
 		
 	 }

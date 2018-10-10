@@ -5,7 +5,7 @@
  
  int main()
  {
- 	freopen("C:\\Users\\DelkBan\\Downloads\\in (28).txt","r",stdin);
+ //	freopen("C:\\Users\\DelkBan\\Downloads\\in (28).txt","r",stdin);
  	int a[5][5];
  	for(int i=0;i<5;i++)
  	{
